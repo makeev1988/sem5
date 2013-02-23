@@ -1,4 +1,4 @@
-package httpserver;
+package task3httpserver;
 
 import javax.activation.MimetypesFileTypeMap;
 import java.io.*;
@@ -138,10 +138,8 @@ public class SocketProcessor implements Runnable {
         for (int i = 0; i < listFiles.length; i++){
             String href;
             href = listFiles[i].getAbsolutePath().substring(homeDirectory.length()).replace('\\','/');
-            System.out.println("href: " + href);
             //href = URLEncoder.encode(href, "UTF-8");
             href = href.replaceAll(" ", "%20");
-            System.out.println("href после encode " + href);
 
             buffer.append("<a href = " + href + ">"+ listFiles[i].getName() +"</a>");
             buffer.append("</br>");

@@ -1,4 +1,4 @@
-package httpserver;
+package task3httpserver;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -101,18 +101,18 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="HttpServer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/httpserver/HttpServer.java">
+        <entry file="file://$PROJECT_DIR$/src/task3httpserver/HttpServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="45" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
+            <state line="17" column="45" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SocketProcessor.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/httpserver/SocketProcessor.java">
+        <entry file="file://$PROJECT_DIR$/src/task3httpserver/SocketProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="0" selection-start="5223" selection-end="5223" vertical-scroll-proportion="4.0357723">
+            <state line="148" column="33" selection-start="5152" selection-end="5152" vertical-scroll-proportion="1.0552845">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/MyExeption.java" />
         <option value="$PROJECT_DIR$/src/ExceptionGeneration.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/MyException.java" />
@@ -153,6 +152,7 @@
         <option value="$PROJECT_DIR$/src/test1/QQwwww.java" />
         <option value="$PROJECT_DIR$/src/test1/SocketProcessor.java" />
         <option value="$PROJECT_DIR$/src/httpserver/SocketProcessor.java" />
+        <option value="$PROJECT_DIR$/src/task3httpserver/SocketProcessor.java" />
       </list>
     </option>
   </component>
@@ -239,7 +239,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="httpserver" />
+              <option name="myItemId" value="task3httpserver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,7 +336,7 @@
     </configuration>
     <configuration default="false" name="HttpServer" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="httpserver.HttpServer" />
+      <option name="MAIN_CLASS_NAME" value="task3httpserver.HttpServer" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="8080 C:\Test" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -417,7 +417,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.7234763" order="3" side_tool="false" content_ui="tabs" />
@@ -432,7 +432,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.7234763" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16115262" sideWeight="0.7234763" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16115262" sideWeight="0.7234763" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2765237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="464" y="146" width="1080" height="573" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -514,7 +514,9 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_11/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="672" column="29" selection-start="25242" selection-end="25242" vertical-scroll-proportion="0.33333334" />
+        <state line="672" column="29" selection-start="25242" selection-end="25242" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_11/src.zip!/java/lang/Runnable.java">
@@ -556,26 +558,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/httpserver/HttpServer.java">
+    <entry file="file://$PROJECT_DIR$/src/task3httpserver/HttpServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="45" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0">
+        <state line="17" column="45" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_11/src.zip!/java/net/SocketOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="2769" selection-end="2769" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test2/HttpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="34" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test2/ClientSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="14" selection-start="3708" selection-end="3739" vertical-scroll-proportion="0.73495936" />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_11/src.zip!/java/io/InputStream.java">
@@ -585,9 +572,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/httpserver/SocketProcessor.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_11/src.zip!/java/net/SocketOutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="0" selection-start="5223" selection-end="5223" vertical-scroll-proportion="4.0357723">
+        <state line="124" column="64" selection-start="3282" selection-end="3282" vertical-scroll-proportion="0.08455285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/task3httpserver/SocketProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="33" selection-start="5152" selection-end="5152" vertical-scroll-proportion="1.0552845">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
