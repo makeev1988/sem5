@@ -30,8 +30,20 @@ public class SocketProcessor implements Runnable {
     @Override
     public void run() {
         try {
-            String url = getURIFromHeader(readInputHeaders());
-            getResponse(url);
+            String request = readInputHeaders();
+            String met =  getMethod(request);
+            if (met.equals("GET")){
+                String url = getURIFromHeader(request);
+                getResponse(url);
+            }else if (met.equals("HEAD")){
+                String hed = "";
+                hed = request.substring(met.length(), request.length());
+                os.write(hed.getBytes());
+                os.flush();
+            }else {
+                System.out.println("Неизвестная команда.");
+            }
+
 
         }catch (Throwable t) {
                t.printStackTrace();
@@ -45,12 +57,17 @@ public class SocketProcessor implements Runnable {
         System.err.println("Обработка клиента окончена.");
     }
 
-
     private String readInputHeaders() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String request = br.readLine();
         request = request.trim();
         return request;
+    }
+
+    private String getMethod (String header){
+        String[] ss = header.split(" ");
+        String method = ss[0];
+        return method;
     }
 
     private String getURIFromHeader(String header) throws UnsupportedEncodingException {
@@ -65,18 +82,40 @@ public class SocketProcessor implements Runnable {
 
     private void getResponse(String urlFromHeaders) throws IOException {
         String directory = urlFromHeaders;
+        String index = directory + "/index.html";
+        File indexHtml = new File(index);
         File f = new File(directory);
         String response;
         //Если файл существует, то работает.
         if (f.exists()){
             //Если это папка то возвращаем html со списком файлов.
             if (f.isDirectory()){
-                response = "HTTP/1.1 200 OK\r\n" +
-                        "Server: YarServer/2009-09-09\r\n" +
-                        "Content-Type: text/html; charset=UTF-8\r\n" +
-                        "Connection: close\r\n\r\n" +
-                        generateHtml(f);
-                os.write(response.getBytes());
+                //Если есть index.html, отдаем его.
+                if (indexHtml.exists()){
+                    InputStream in = new FileInputStream(indexHtml);
+                    response = "HTTP/1.1 200 OK\r\n" +
+                            "Server: YarServer/2009-09-09\r\n" +
+                            "Content-Type: text/html; charset=UTF-8\r\n" +
+                            "Connection: close\r\n\r\n";
+                    os.write(response.getBytes());
+                    int count = 0;
+                    byte[] buffer = new byte[1024];
+                    while  ( (count = in.read(buffer)) != -1){
+                        os.write(buffer, 0, count);
+                    }
+
+                }
+                //Если нет index.html, то создаем ответ.
+                else {
+                    response = "HTTP/1.1 200 OK\r\n" +
+                            "Server: YarServer/2009-09-09\r\n" +
+                            "Content-Type: text/html; charset=UTF-8\r\n" +
+                            "Connection: close\r\n\r\n" +
+                            generateHtml(f);
+                    os.write(response.getBytes());
+
+                }
+
             //Если это файл, то нужно вернуть соответствующий ContentType и передать файл.
             }else {
                 InputStream in = new FileInputStream(f);
@@ -86,7 +125,6 @@ public class SocketProcessor implements Runnable {
                         "Content-Length: " + f.length() + "\r\n" +
                         "Connection: close\r\n\r\n";
                 os.write(response.getBytes());
-                byte b;
                 int count = 0;
                 byte[] buffer = new byte[1024];
                 while  ( (count = in.read(buffer)) != -1){
@@ -125,31 +163,31 @@ public class SocketProcessor implements Runnable {
         });
 
         //Сформировать HTML
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("<html>");
-        buffer.append('\n');
-        buffer.append("<body>");
-        buffer.append('\n');
+        StringBuilder sb = new StringBuilder();
+        sb.append("<html>");
+        sb.append('\n');
+        sb.append("<body>");
+        sb.append('\n');
 
-        buffer.append("<a href =" + file.getAbsolutePath().substring(homeDirectory.length()).replace('\\', '/').replaceAll(" ", "%20") + "/..>..</a>");
-        buffer.append("</br>");
-        buffer.append('\n');
+        sb.append("<a href =" + file.getAbsolutePath().substring(homeDirectory.length()).replace('\\', '/').replaceAll(" ", "%20") + "/..>..</a>");
+        sb.append("</br>");
+        sb.append('\n');
 
-        for (int i = 0; i < listFiles.length; i++){
+        for (File f: listFiles){
             String href;
-            href = listFiles[i].getAbsolutePath().substring(homeDirectory.length()).replace('\\','/');
+            href = f.getAbsolutePath().substring(homeDirectory.length()).replace('\\','/');
             //href = URLEncoder.encode(href, "UTF-8");
             href = href.replaceAll(" ", "%20");
 
-            buffer.append("<a href = " + href + ">"+ listFiles[i].getName() +"</a>");
-            buffer.append("</br>");
-            buffer.append('\n');
+            sb.append("<a href = " + href + ">" + f.getName() + "</a>");
+            sb.append("</br>");
+            sb.append('\n');
         }
 
-        buffer.append("</body>");
-        buffer.append('\n');
-        buffer.append("</html>");
+        sb.append("</body>");
+        sb.append('\n');
+        sb.append("</html>");
 
-        return buffer.toString();
+        return sb.toString();
     }
 }
